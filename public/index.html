@@ -495,14 +495,16 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  transform:translateY(100%);border-left:none;border-top:1px solid var(--border);}
  #dp.open{transform:translateY(0);}
 
- /* SIMULATOR MODAL */
- #simmodal{padding:0;}
+ /* SIMULATOR MODAL — single scrollable column on mobile */
+ #simmodal{padding:14px;}
  .smbox{
- flex-direction:column;max-height:100vh;height:100vh;
- width:100%;border-radius:0;border:none;
+ flex-direction:column;
+ width:100%;max-height:90vh;height:auto;
+ border-radius:2px;border:1px solid var(--border);
+ overflow-y:auto;overflow-x:hidden;
  }
- .sml{width:100%;max-height:45vh;border-right:none;border-bottom:1px solid var(--border);}
- .smr{max-height:55vh;}
+ .sml{width:100%;max-height:none;overflow-y:visible;border-right:none;border-bottom:1px solid var(--border);flex-shrink:0;}
+ .smr{max-height:none;overflow-y:visible;flex-shrink:0;}
 
  /* FILTERS */
  .fltbody{max-height:60vh;}
@@ -912,7 +914,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  <button class="smrun" onclick="runSim()" id="sm-run">▶ CALCULAR IMPACTO</button>
  <div class="smrefs">
  CEAF · Gimnasio Campestre · Bogotá<br>
- <span style="color:var(--amber)">© Prohibida la reproducción</span><br>
+ <span id="sm-copyright" style="color:var(--amber)">© Prohibida la reproducción</span><br>
  Collins et al. (2005) Meteoritics &amp; Planet. Sci. 40:817<br>
  Kinney &amp; Graham (1985) Explosive Shocks in Air<br>
  Chyba, Thomas &amp; Zahnle (1993) Nature 361:40<br>
