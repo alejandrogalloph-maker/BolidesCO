@@ -3,7 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BolidesCO — CEAF</title>
+<title>BolidesCO — Bolides y Meteoritos sobre Colombia | CEAF</title>
+<meta name="description" content="Plataforma científica para la detección, visualización y simulación de impactos de bolides sobre Colombia. Datos en tiempo real de NASA CNEOS y GLM. Desarrollada por CEAF, Gimnasio Campestre, Bogotá.">
+<meta name="keywords" content="bolides Colombia, meteoritos Colombia, impactos asteroides, NASA CNEOS, GLM bolide, simulador impacto, CEAF, astrofísica Colombia, Gimnasio Campestre">
+<meta name="robots" content="index, follow">
+<meta name="author" content="CEAF — Centro de Estudios Astrofísicos, Gimnasio Campestre">
+<link rel="canonical" href="https://bolidesco.org/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bolidesco.org/">
+<meta property="og:title" content="BolidesCO — Bolides y Meteoritos sobre Colombia">
+<meta property="og:description" content="Plataforma científica para la detección, visualización y simulación de impactos de bolides sobre Colombia. Datos NASA en tiempo real.">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="BolidesCO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BolidesCO — Bolides y Meteoritos sobre Colombia">
+<meta name="twitter:description" content="Plataforma científica para la detección, visualización y simulación de impactos de bolides sobre Colombia. Datos NASA en tiempo real.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://bolidesco.org/#website","url":"https://bolidesco.org/","name":"BolidesCO","description":"Plataforma científica para la detección, visualización y simulación de impactos de bolides sobre Colombia","inLanguage":["es","en"],"publisher":{"@id":"https://bolidesco.org/#organization"}},{"@type":"Organization","@id":"https://bolidesco.org/#organization","name":"CEAF — Centro de Estudios Astrofísicos","alternateName":"CEAF","url":"https://bolidesco.org/","parentOrganization":{"@type":"EducationalOrganization","name":"Gimnasio Campestre","address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"}}},{"@type":"Dataset","@id":"https://bolidesco.org/#dataset","name":"Eventos de Bolides sobre Colombia","description":"Registro histórico y en tiempo real de impactos de bolides detectados sobre Colombia y el mundo, integrando datos de NASA GLM y CNEOS.","url":"https://bolidesco.org/","license":"https://creativecommons.org/licenses/by-nc/4.0/","creator":{"@id":"https://bolidesco.org/#organization"},"spatialCoverage":{"@type":"Place","name":"Colombia"},"temporalCoverage":"1994/..","keywords":["bolides","meteoritos","Colombia","NASA","impactos"]}]}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0908'/><circle cx='21' cy='11' r='7' fill='%23d4870a' opacity='.95'/><line x1='4' y1='28' x2='23' y2='9' stroke='%23f5f3ee' stroke-width='3' stroke-linecap='round' opacity='.8'/><circle cx='21' cy='11' r='3' fill='%23fff' opacity='.55'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
@@ -381,7 +399,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
   .nenter{display:none;}
 }
 /* MOBILE FLOATING LANG BUTTON (in-app) */
-#mob-lang-btn{display:none!important;}  /* language toggle is inside sidebar */
+#mob-lang-btn{display:none!important;}/* lang toggle lives in sidebar */
 @media(max-width:768px){#sb-lang-row{display:block!important;}}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
@@ -434,7 +452,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  .ms{min-width:calc(50% - 1px);}
  .reg-meta{flex-wrap:wrap;gap:8px;}
 
- /* APP HEADER — logo + Simulator + Home only */
+ /* APP HEADER — logo · Simulator · Home */
  #ahdr{padding:0 16px;gap:0;height:52px;}
  .alogo{font-size:19px;}
  .asep,.ainst,.astats{display:none;}
@@ -476,37 +494,50 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  .leaflet-control-zoom{display:none;}
  .mleg{display:none;}
 
- /* STATUS BAR — hidden on mobile */
+ /* STATUS BAR */
  #stbar{display:none;}
 
- /* DETAIL PANEL — full width on mobile */
+ /* DETAIL PANEL — full width, drag handle */
  #dp{width:100%;right:0;left:0;bottom:0;top:auto;height:58vh;
  transform:translateY(100%);border-left:none;border-top:1px solid var(--border);}
  #dp.open{transform:translateY(0);}
  .dphdr{position:relative;padding-top:18px;}
  .dphdr::before{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:36px;height:3px;background:var(--border2);border-radius:2px;}
 
- /* SIMULATOR MODAL — one scrollable column */
- #simmodal{padding:10px;}
+ /* SIMULATOR MODAL — professional bottom sheet */
+ #simmodal{padding:10px;align-items:flex-end;}
  .smbox{
- flex-direction:column;width:100%;height:auto;max-height:92vh;
- border-radius:3px;border:1px solid var(--border);
+ flex-direction:column;width:100%;
+ height:auto;max-height:94vh;
+ border-radius:8px 8px 4px 4px;
  overflow-y:auto;overflow-x:hidden;
+ border:1px solid var(--border);
  }
- .sml{width:100%;max-height:none;overflow-y:visible;padding:14px;border-right:none;border-bottom:1px solid var(--border);flex-shrink:0;}
- .smr{max-height:none;overflow-y:visible;padding:14px;flex-shrink:0;}
- .sf{gap:8px;}
+ .sml{
+ width:100%;max-height:none;overflow-y:visible;
+ padding:18px 16px 14px;
+ border-right:none;border-bottom:1px solid var(--border);
+ flex-shrink:0;
+ }
+ .smr{max-height:none;overflow-y:visible;padding:16px;flex-shrink:0;}
+ .smidl{display:none;}
+ .smhd{margin-bottom:16px;}
+ .smtit{font-size:16px;}
  .sflbl{font-size:10px;letter-spacing:.5px;}
- .sfval{font-size:18px;}
+ .sfval{font-size:19px;}
  .sfn{font-size:9.5px;line-height:1.55;}
+ .sf{gap:10px;}
  input[type="range"]{height:4px;}
- input[type="range"]::-webkit-slider-thumb{width:22px;height:22px;}
- input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--ink);border:none;}
- .smsel{font-size:12px;padding:9px 10px;}
- .smrun{padding:13px;font-size:10px;}
- .smrand{padding:10px;font-size:10px;}
- .smidl{height:80px;}
- .smidlt{font-size:16px;}
+ input[type="range"]::-webkit-slider-thumb{width:24px;height:24px;border-width:3px;}
+ input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--ink);border:3px solid var(--surface);}
+ .smsel{font-size:12px;padding:10px;}
+ .smrand{padding:11px;font-size:10px;}
+ .smrun{padding:14px;font-size:10px;letter-spacing:1px;}
+ .smrefs{font-size:8.5px;line-height:1.9;}
+ .smtarw{gap:7px;}
+ .smmets{gap:7px;}
+ .smml{font-size:8px;}
+ .smmv{font-size:20px;}
 
  /* FILTERS */
  .fltbody{max-height:60vh;}
