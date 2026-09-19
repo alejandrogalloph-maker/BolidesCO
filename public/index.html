@@ -258,9 +258,10 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .smrun{width:100%;padding:10px;background:var(--ink);border:none;border-radius:2px;color:#fff;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;}
 .smrun:hover{background:var(--ink2);}
 .smrefs{font-family:var(--mono);font-size:7px;color:var(--ink3);line-height:1.9;border-top:1px solid var(--border);padding-top:10px;}
-.smidl{display:flex;flex-direction:column;align-items:center;justify-content:center;height:260px;gap:10px;opacity:.1;}
-.smidlt{font-family:var(--pf);font-size:24px;font-weight:700;color:var(--ink);}
-.smidls{font-family:var(--mono);font-size:8.5px;color:var(--ink3);letter-spacing:2px;}
+.smidl{display:flex;flex-direction:column;align-items:center;justify-content:center;height:260px;gap:16px;border:1px dashed var(--border2);border-radius:2px;margin:4px;}
+.smidl-icon{opacity:.22;flex-shrink:0;}
+.smidlt{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--ink3);}
+.smidls{font-family:var(--mono);font-size:8px;color:var(--ink3);letter-spacing:2px;opacity:.55;}
 .smmets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:15px;}
 .smmet{background:var(--bg);border:1px solid var(--border);border-radius:2px;padding:11px;border-top:2px solid var(--border);}
 .smmet.me{border-top-color:var(--ink)}.smmet.ma{border-top-color:var(--blue)}.smmet.mm{border-top-color:var(--ink3)}.smmet.mr{border-top-color:var(--green)}
@@ -962,6 +963,19 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  </div>
  <div class="smr" id="smr">
  <div class="smidl" id="smidl">
+ <svg class="smidl-icon" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- impact rings -->
+  <circle cx="36" cy="36" r="6" stroke="var(--ink)" stroke-width="1.5"/>
+  <circle cx="36" cy="36" r="16" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="36" cy="36" r="28" stroke="var(--ink)" stroke-width=".75" stroke-dasharray="2 4"/>
+  <!-- crosshair -->
+  <line x1="36" y1="2" x2="36" y2="16" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"/>
+  <line x1="36" y1="56" x2="36" y2="70" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"/>
+  <line x1="2" y1="36" x2="16" y2="36" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"/>
+  <line x1="56" y1="36" x2="70" y2="36" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"/>
+  <!-- center dot -->
+  <circle cx="36" cy="36" r="2.5" fill="var(--ink)"/>
+ </svg>
  <div class="smidlt" id="sm-idlt">Configura los parámetros</div>
  <div class="smidls">PHYSICS ENGINE READY</div>
  </div>
