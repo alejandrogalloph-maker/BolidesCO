@@ -584,6 +584,60 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  #reg-panel{top:auto;bottom:72px;right:9px;min-width:130px;}
  .reg-map-btn{font-size:8px;padding:4px 6px;}
 }
+
+/* ── REPORT MODAL ──────────────────────────────────────────── */
+.ab.rep-btn{background:rgba(212,135,10,.08);border-color:var(--amber);color:var(--amber);}
+.ab.rep-btn:hover{background:rgba(212,135,10,.16);border-color:var(--amber);}
+#repmodal{position:fixed;inset:0;z-index:9500;background:rgba(26,24,20,.86);display:none;align-items:center;justify-content:center;padding:20px;}
+#repmodal.open{display:flex;}
+.repbox{background:var(--surface);border:1px solid var(--border);width:min(480px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 32px 96px rgba(0,0,0,.22);border-radius:3px;}
+.rephdr{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.reptit{font-family:var(--pf);font-size:17px;font-weight:700;color:var(--ink);}
+.repcl{background:none;border:none;color:var(--ink3);cursor:pointer;font-size:20px;line-height:1;transition:.15s;}
+.repcl:hover{color:var(--ink);}
+.repbody{flex:1;overflow-y:auto;padding:18px;}
+.repfield{margin-bottom:16px;}
+.repfl{font-family:var(--mono);font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink3);margin-bottom:6px;display:block;}
+.reptxt,.repinp{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--border);border-radius:2px;padding:9px 10px;font-size:11px;font-family:var(--sans);outline:none;transition:border-color .15s;}
+.reptxt{resize:vertical;min-height:80px;}
+.reptxt:focus,.repinp:focus{border-color:var(--ink2);}
+.rep-loc-row{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:end;}
+.rep-gps{padding:8px 11px;background:transparent;border:1px solid var(--border);border-radius:2px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--ink2);cursor:pointer;white-space:nowrap;transition:.15s;letter-spacing:.5px;}
+.rep-gps:hover{border-color:var(--ink);color:var(--ink);}
+.rep-gps.loading{opacity:.5;cursor:wait;}
+.rep-img-zone{border:1px dashed var(--border2);border-radius:2px;padding:20px;text-align:center;cursor:pointer;transition:.15s;background:var(--bg);}
+.rep-img-zone:hover{border-color:var(--ink2);background:var(--bg2);}
+.rep-img-zone.has-img{border-style:solid;border-color:var(--green);padding:8px;}
+.rep-img-lbl{font-family:var(--mono);font-size:8.5px;color:var(--ink3);letter-spacing:1px;}
+.rep-img-preview{width:100%;max-height:160px;object-fit:cover;border-radius:1px;display:block;}
+.rep-img-clear{font-family:var(--mono);font-size:8px;color:var(--red);cursor:pointer;margin-top:5px;display:block;text-align:center;letter-spacing:.5px;}
+.repsubmit{width:100%;padding:11px;background:var(--amber);color:#fff;border:none;border-radius:2px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s;margin-top:4px;}
+.repsubmit:hover{background:#c47808;}
+.repsubmit:disabled{opacity:.45;cursor:not-allowed;}
+.rep-status{margin-top:10px;padding:9px 11px;border-radius:2px;font-family:var(--mono);font-size:9px;text-align:center;display:none;}
+.rep-status.ok{display:block;background:rgba(26,122,74,.08);border:1px solid rgba(26,122,74,.2);color:var(--green);}
+.rep-status.err{display:block;background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.2);color:var(--red);}
+@media(max-width:768px){
+ #repmodal{padding:10px;align-items:flex-end;}
+ .repbox{width:100%;border-radius:6px 6px 3px 3px;max-height:94vh;}
+ .rep-loc-row{grid-template-columns:1fr 1fr;gap:5px;}
+ .rep-gps{grid-column:1/-1;}
+}
+
+/* ── EQUATION BLOCK ────────────────────────────────────────── */
+.eqblock{display:flex;flex-direction:column;margin-bottom:9px;border-radius:2px;overflow:hidden;border:1px solid var(--border);}
+.eqhdr{background:var(--ink);color:#fff;padding:9px 12px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px;}
+.eqhdr-sub{font-weight:400;opacity:.65;font-size:9px;letter-spacing:0;}
+.eqhdr.surf{background:var(--red);}
+.eqrow{padding:8px 12px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:3px;background:var(--surface);}
+.eqrow.alt{background:var(--bg);}
+.eqlbl{font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:1px;}
+.eqline{font-family:var(--mono);font-size:9px;color:var(--ink2);line-height:1.55;}
+.eqline b,.eqline strong{color:var(--ink);font-weight:700;}
+.eqres{font-family:var(--mono);font-size:10.5px;color:var(--ink);font-weight:700;letter-spacing:-.2px;}
+.eqcite{font-family:var(--mono);font-size:7px;color:var(--ink3);margin-top:1px;}
+.eqwarn{font-family:var(--mono);font-size:8px;color:var(--amber);padding:6px 12px;border-top:1px solid rgba(212,135,10,.2);background:rgba(212,135,10,.04);}
+.eqrefs{padding:7px 12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:7px;color:var(--ink3);line-height:1.8;background:var(--bg);}
 </style>
 </head>
 <body>
@@ -728,6 +782,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  <div class="aright">
  <button class="ab" id="a-flt" onclick="toggleFlt()">FILTROS</button>
  <button class="ab" id="a-exp" onclick="exportCSV()" title="Descargar CSV">⬇ CSV</button>
+ <button class="ab rep-btn" id="a-rep" onclick="openRep()">⊕ REPORTAR</button>
  <button class="ab sbtn" id="a-sim" onclick="openSim()">SIMULADOR</button>
  <div class="alangw">
  <button class="albtn on" onclick="setLang('es')">ES</button>
@@ -900,6 +955,54 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 <button id="mob-sb-btn" onclick="mobSbToggle()" style="display:none">☰ Eventos</button>
 <div id="errbar"></div>
 
+<div id="repmodal">
+ <div class="repbox">
+  <div class="rephdr">
+   <span class="reptit" id="rep-tit">Reportar Bólido</span>
+   <button class="repcl" onclick="closeRep()">×</button>
+  </div>
+  <div class="repbody">
+   <div class="repfield">
+    <label class="repfl" id="rep-lbl-desc">Descripción del evento</label>
+    <textarea class="reptxt" id="rep-desc" placeholder="¿Qué viste? Color, dirección, duración, sonido..."></textarea>
+   </div>
+   <div class="repfield">
+    <label class="repfl" id="rep-lbl-loc">Ubicación del avistamiento</label>
+    <div class="rep-loc-row">
+     <div>
+      <label class="repfl" style="font-size:7px;margin-bottom:3px">LATITUD</label>
+      <input class="repinp" id="rep-lat" type="number" step="0.0001" placeholder="4.6097" min="-90" max="90">
+     </div>
+     <div>
+      <label class="repfl" style="font-size:7px;margin-bottom:3px">LONGITUD</label>
+      <input class="repinp" id="rep-lon" type="number" step="0.0001" placeholder="-74.0817" min="-180" max="180">
+     </div>
+     <button class="rep-gps" id="rep-gps-btn" onclick="repGetGPS()">📍 GPS</button>
+    </div>
+   </div>
+   <div class="repfield">
+    <label class="repfl" id="rep-lbl-when">Fecha y hora</label>
+    <input class="repinp" id="rep-when" type="datetime-local">
+   </div>
+   <div class="repfield">
+    <label class="repfl" id="rep-lbl-reporter">Tu nombre o contacto <span style="opacity:.45">(opcional)</span></label>
+    <input class="repinp" id="rep-reporter" type="text" placeholder="Nombre, email o @usuario">
+   </div>
+   <div class="repfield">
+    <label class="repfl" id="rep-lbl-img">Foto o video (opcional)</label>
+    <div class="rep-img-zone" id="rep-img-zone" onclick="document.getElementById('rep-file').click()">
+     <div class="rep-img-lbl" id="rep-img-lbl">TOCA PARA SUBIR IMAGEN</div>
+     <img id="rep-img-preview" class="rep-img-preview" style="display:none">
+     <span class="rep-img-clear" id="rep-img-clear" style="display:none" onclick="repClearImg(event)">✕ Quitar imagen</span>
+    </div>
+    <input type="file" id="rep-file" accept="image/*" style="display:none" onchange="repHandleImg(this)">
+   </div>
+   <button class="repsubmit" id="rep-submit" onclick="submitReport()">ENVIAR REPORTE</button>
+   <div class="rep-status" id="rep-status"></div>
+  </div>
+ </div>
+</div>
+
 <div id="simmodal">
  <div class="smbox">
  <div class="sml">
@@ -932,7 +1035,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
  </select>
  </div>
  <div class="sf">
- <span class="sflbl" id="sm-tgt">Zona de impacto</span>
+ <span class="sflbl" id="sm-tgt">Zona de impacto</span><span id="sm-tgt-hint" style="font-family:var(--mono);font-size:8px;color:var(--ink3);display:block;margin-top:2px;opacity:.7">Opcional — usa densidad de Colombia si no se selecciona</span>
  <div class="smtarw">
  <select id="scountry" class="smsel" onchange="onCC()"></select>
  <div id="ccard" class="rcard"></div>
@@ -1023,7 +1126,7 @@ es:{
  mt_ey:'03 · DATOS EN VIVO',mt_tit:'Mapa Global',
  mt_desc:'Visualiza todos los eventos detectados por la red GLM y el catálogo USG/CNEOS, actualizados automáticamente.',
  mt_cta:'EXPLORAR EL MAPA →',mt_lv:'En vivo',mt_ll:'Actualizando',
- a_flt:'FILTROS',a_sim:'SIMULADOR',a_bk:'← INICIO',
+ a_flt:'FILTROS',a_sim:'SIMULADOR',a_bk:'← INICIO',a_rep:'⊕ REPORTAR',
  hh_tot:'Total',hh_top:'Energía Máx',
  sb_tit:'Eventos',sb_live:'Actualizando por proximidad',
  fl_view:'Vista',fl_src:'Fuente',fl_sat:'Satélite GLM',fl_conf:'Confianza GLM',
@@ -1094,6 +1197,25 @@ es:{
  sm_hab:'hab',
  sm_habkm2:'hab/km²',
  sm_zona:'Zona',
+
+ rep_tit:'Reportar Bólido',rep_lbl_desc:'Descripción del evento',
+ rep_ph_desc:'¿Qué viste? Color, dirección, duración, sonido…',
+ rep_lbl_loc:'Ubicación del avistamiento',
+ rep_lbl_when:'Fecha y hora',rep_lbl_reporter:'Tu nombre o contacto',
+ rep_reporter_opt:'(opcional)',
+ rep_ph_reporter:'Nombre, email o @usuario',
+ rep_lbl_img:'Foto (opcional)',rep_img_lbl:'TOCA PARA SUBIR IMAGEN',
+ rep_clear:'✕ Quitar imagen',rep_submit:'ENVIAR REPORTE',
+ rep_sending:'ENVIANDO…',rep_gps_search:'Buscando…',rep_gps_ok:'✓ GPS',
+ rep_ok:'✓ Reporte enviado. ¡Gracias por contribuir a CEAF!',
+ rep_ok_photo:'✓ Reporte enviado con foto. ¡Gracias por contribuir a CEAF!',
+ rep_err_desc:'Por favor describe el evento.',
+ rep_err_loc:'Ingresa las coordenadas o usa el botón GPS.',
+ rep_err_gps:'No se pudo obtener ubicación. Ingresa las coordenadas manualmente.',
+ rep_err_gps_denied:'Permiso de ubicación denegado. Ingresa las coordenadas manualmente.',
+ rep_err_send:'Error al enviar. Revisa tu conexión e intenta de nuevo.',
+ rep_err_cfg:'Configura CALLMEBOT_KEY y FORMSPREE_ID en el código.',
+ sm_tgt_hint:'Opcional — usa densidad de Colombia si no se selecciona',
  bib_ey:'04 · REFERENCIAS',
  bib_tit:'Bibliografía',
  err:{
@@ -1129,7 +1251,7 @@ en:{
  mt_ey:'03 · LIVE DATA',mt_tit:'Global Map',
  mt_desc:'All GLM and USG/CNEOS events updated automatically.',
  mt_cta:'EXPLORE THE MAP →',mt_lv:'Live',mt_ll:'Updating',
- a_flt:'FILTERS',a_sim:'SIMULATOR',a_bk:'← HOME',
+ a_flt:'FILTERS',a_sim:'SIMULATOR',a_bk:'← HOME',a_rep:'⊕ REPORT',
  hh_tot:'Total',hh_top:'Max Energy',
  sb_tit:'Events',sb_live:'Auto-updating by proximity',
  fl_view:'View',fl_src:'Source',fl_sat:'GLM Satellite',fl_conf:'GLM Confidence',
@@ -1200,6 +1322,25 @@ en:{
  sm_hab:'inh.',
  sm_habkm2:'inh/km²',
  sm_zona:'Zone',
+
+ rep_tit:'Report a Bolide',rep_lbl_desc:'Event description',
+ rep_ph_desc:'What did you see? Color, direction, duration, sound…',
+ rep_lbl_loc:'Sighting location',
+ rep_lbl_when:'Date and time',rep_lbl_reporter:'Your name or contact',
+ rep_reporter_opt:'(optional)',
+ rep_ph_reporter:'Name, email or @username',
+ rep_lbl_img:'Photo (optional)',rep_img_lbl:'TAP TO UPLOAD IMAGE',
+ rep_clear:'✕ Remove image',rep_submit:'SEND REPORT',
+ rep_sending:'SENDING…',rep_gps_search:'Searching…',rep_gps_ok:'✓ GPS',
+ rep_ok:'✓ Report sent. Thank you for contributing to CEAF!',
+ rep_ok_photo:'✓ Report sent with photo. Thank you for contributing to CEAF!',
+ rep_err_desc:'Please describe the event.',
+ rep_err_loc:'Enter coordinates or use the GPS button.',
+ rep_err_gps:'Could not get location. Enter coordinates manually.',
+ rep_err_gps_denied:'Location permission denied. Enter coordinates manually.',
+ rep_err_send:'Send failed. Check your connection and try again.',
+ rep_err_cfg:'Set CALLMEBOT_KEY and FORMSPREE_ID in the code.',
+ sm_tgt_hint:'Optional — uses Colombia density if not selected',
  bib_ey:'04 · REFERENCES',
  bib_tit:'Bibliography',
  err:{
@@ -1290,16 +1431,7 @@ var LANG='es',MAP=null,CRR=null,LG=null,MAP_READY=false,APP_INIT=false;
 var EVTS=[],MKS=[],FLT={view:'col',src:'all',sat:'all',conf:'all',yrf:'',yrt:'',me:0,reg:'',dept:''};
 var SEL=-1,GLM_N=0,USG_N=0,ERRS=new Map(),SBI=null,GLM_NEWEST_TS=null;
 
-const FB=[
- {src:'u',lat:54.8,lng:61.1,y:2013,dt:'2013-02-15 03:20:22',_ts:0,c:null,ss:['USG'],sd:{},pk:null,ekt:440,nm:'Chelyabinsk',ds:'Superbólido más energético de la era moderna. ~440 kt TNT. Airburst a 23.3 km.',alt:23.3,vel:18.6},
- {src:'u',lat:56.9,lng:172.4,y:2018,dt:'2018-12-18 23:48:20',_ts:0,c:null,ss:['USG'],sd:{},pk:null,ekt:173,nm:'Bering Sea 2018',ds:'Segundo evento más energético registrado. ~173 kt TNT.',alt:25.6,vel:32.0},
- {src:'u',lat:60.9,lng:101.9,y:1908,dt:'1908-06-30 00:14:00',_ts:0,c:null,ss:['Estimado'],sd:{},pk:null,ekt:15000,nm:'Tunguska 1908',ds:'El mayor impacto registrado en la era moderna. ~15 Mt TNT estimado.',alt:5,vel:27.0},
- {src:'g',lat:5.5,lng:-75.0,y:2016,dt:'2016-08-19 04:16:00',_ts:0,c:'H',ss:['16'],sd:{'16':['H',2.1]},pk:2.1,ekt:0.54,nm:'Bolide Antioquia 2016',ds:'Bólido brillante sobre Antioquia y el Eje Cafetero.',du:3.2},
- {src:'g',lat:4.0,lng:-73.5,y:2022,dt:'2022-03-08 09:15:00',_ts:0,c:'M',ss:['16'],sd:{'16':['M',0.8]},pk:0.8,ekt:null,nm:'',ds:'Evento sobre los Llanos Orientales.',du:1.4},
- {src:'g',lat:7.2,lng:-75.8,y:2019,dt:'2019-11-12 23:40:00',_ts:0,c:'H',ss:['16'],sd:{'16':['H',0.4]},pk:0.4,ekt:0.06,nm:'',ds:'Bólido sobre el noroccidente de Colombia.',du:2.1},
- {src:'g',lat:3.9,lng:-76.5,y:2021,dt:'2021-05-03 01:22:00',_ts:0,c:'H',ss:['16'],sd:{'16':['H',1.2]},pk:1.2,ekt:null,nm:'',ds:'Evento sobre el Valle del Cauca.',du:1.8},
- {src:'g',lat:10.5,lng:-73.2,y:2020,dt:'2020-07-14 19:05:00',_ts:0,c:'H',ss:['16','17'],sd:{'16':['H',0.6],'17':['M',0.3]},pk:0.6,ekt:null,nm:'',ds:'Detección doble sobre el Caribe colombiano.',du:2.5},
-];
+const FB=[];
 
 
 function closestDept(lat,lng){
@@ -1330,7 +1462,7 @@ function applyTX(){
  se('tz1',x.tz1);se('tz2',x.tz2);se('tz3',x.tz3);se('tz4',x.tz4);se('tz5',x.tz5);
  se('mt-ey',x.mt_ey);se('mt-tit',x.mt_tit);se('mt-desc',x.mt_desc);se('mt-cta',x.mt_cta);
  se('mt-live-v',x.mt_lv);se('mt-live-l',x.mt_ll);
- se('a-flt',x.a_flt);se('a-sim',x.a_sim);se('a-bk',x.a_bk);
+ se('a-flt',x.a_flt);se('a-rep',x.a_rep);se('a-sim',x.a_sim);se('a-bk',x.a_bk);
  se('hh-tot',x.hh_tot);se('hh-top',x.hh_top);
  se('sb-tit',x.sb_tit);se('sb-live',x.sb_live);se('flt-lbl',x.a_flt);
  se('fl-view',x.fl_view);se('fl-src',x.fl_src);se('fl-sat',x.fl_sat);se('fl-conf',x.fl_conf);
@@ -1355,6 +1487,22 @@ function applyTX(){
  var scr=document.getElementById('sm-copyright');if(scr)scr.textContent=x.copyright;
  var ai=document.getElementById('app-ainst');if(ai)ai.innerHTML=(x.ceaf_full||'CEAF')+'<br>Gimnasio Campestre · Bogotá';
   syncMobLang();
+ // Report modal
+ se('rep-tit',x.rep_tit);
+ se('rep-lbl-desc',x.rep_lbl_desc);
+ se('rep-lbl-loc',x.rep_lbl_loc);
+ se('rep-lbl-when',x.rep_lbl_when);
+ se('rep-lbl-reporter',x.rep_lbl_reporter);
+ se('rep-lbl-img',x.rep_lbl_img);
+ se('rep-img-lbl',x.rep_img_lbl);
+ se('rep-img-clear',x.rep_clear);
+ var rs=document.getElementById('rep-submit');if(rs&&rs.textContent!==x.rep_sending)rs.textContent=x.rep_submit;
+ var rd=document.getElementById('rep-desc');if(rd)rd.placeholder=x.rep_ph_desc;
+ var rr=document.getElementById('rep-reporter');if(rr)rr.placeholder=x.rep_ph_reporter;
+ // Simulator zone hint
+ se('sm-tgt-hint',x.sm_tgt_hint);
+ // Dept placeholder
+ var sd=document.getElementById('sdept');if(sd&&sd.options[0])sd.options[0].text=LANG==='en'?'— Colombia (optional) —':'— Colombia (opcional) —';
 }
 
 
@@ -1968,14 +2116,48 @@ function renderSim(R){
  var machN=(R.v/340).toFixed(0);
  var weffNote=R.ab?x.sm_weff_ab:x.sm_weff_sf;
  var machStemNote=R.ab&&R.hkm<30?x.sm_mach:'';
+ // helper: format scientific notation as a×10ⁿ
+ var fSci=function(n){var e=Math.floor(Math.log10(n)),m=(n/Math.pow(10,e));var sup={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};var eStr=String(e).split('').map(function(c){return sup[c]||c;}).join('');return m.toFixed(1)+'×10'+eStr;};
+ var vkms=(R.v/1e3).toFixed(0);
+ var zfEq='z_f = H·ln(ρ₀v²/Y) = 8500·ln(1.293·'+vkms+'²/'+fSci(R.Y)+')';
+ var zfRes=R.ab?R.hkm.toFixed(1)+' km':(LANG==='en'?'surface impact':'impacto superficie');
+ var zfLbl=R.ab?(x.sm_ab_lbl||'AIRBURST'):(x.sm_sf_lbl||'SUPERFICIE');
+ var hdrCls=R.ab?'eqhdr':'eqhdr surf';
+ var hdrIcon=R.ab?'💥':'🌍';
+ var hdrTxt=R.ab?(LANG==='en'?'Airburst':'Airburst')+' @ '+R.hkm.toFixed(1)+' km':(LANG==='en'?'Surface Impact':'Impacto Superficie');
+ var EkRnd=R.Ekt>=1000?(R.Ekt/1000).toFixed(2)+' Mt TNT':R.Ekt.toFixed(1)+' kt TNT';
+ var cratRow=R.crat>0?('<div class="eqrow alt">'
+  +'<div class="eqlbl">'+(LANG==='en'?'CRATER':'CRÁTER')+'</div>'
+  +'<div class="eqline">D_f = 1.56·(ρᵢ/ρₜ)^⅓·d^0.78·v^0.44·sin(θ)^⅓·g⁻⁰·²²</div>'
+  +'<div class="eqres">= '+fR(R.crat)+'</div>'
+  +'<div class="eqcite">Holsapple (1993) Annu. Rev. Earth Planet. Sci. 21</div>'
+  +'</div>'):'';
+ var warnRow=machStemNote?('<div class="eqwarn">⚠ '+machStemNote+'</div>'):'';
  document.getElementById('smpbox').innerHTML=
- '<b>'+(R.ab?'💥 Airburst @ '+R.hkm.toFixed(1)+' km (Ma '+machN+')':'🌍 '+(x.sm_sf_lbl||'SUPERFICIE')+' (Ma '+machN+')')+'</b><br>'+
- 'z_f = H·ln(ρ₀v²/Y) = 8500·ln(1.293·'+(R.v/1e3).toFixed(0)+'²/'+R.Y.toExponential(1)+') '+(R.ab?'= '+R.hkm.toFixed(1)+' km ['+(x.sm_ab_lbl||'AIRBURST')+']':'&lt; 0 ['+(x.sm_sf_lbl||'SUPERFICIE')+']')+' · Chyba et al. (1993) Ec.5<br>'+
- 'E_k = ½mv² = '+fE(R.Ekt)+' · m = ρ·(π/6)·d³ = '+fM(R.mass)+' · '+weffNote+'<br>'+
- (R.crat>0?'Cráter: D_f = 1.56·(ρᵢ/ρₜ)^⅓·d^0.78·v^0.44·sin(θ)^⅓/g^0.22 = <b>'+fR(R.crat)+'</b> · Holsapple (1993)<br>':'')+
- (x.sm_zona||'Zona')+': <b>'+R.rNm+'</b> · ρ̄ = '+R.dens.toFixed(1)+' '+(x.sm_habkm2||'hab/km²')+' ('+x.sm_unif+') · '+(x.sm_pob_tot||'Pob. total')+': '+R.rPop.toLocaleString()+' '+(x.sm_hab||'hab')+'<br>'+
- (machStemNote?'<span style="color:var(--amber);font-size:7.5px">'+machStemNote+'</span><br>':'')+
- '<span style="color:var(--ink3);font-size:7px">Kinney &amp; Graham (1985) · Chyba, Thomas &amp; Zahnle (1993) · Holsapple (1993) · Collins et al. (2005) · DANE 2023 · ONU 2023</span>';
+ '<div class="eqblock">'
+ +'<div class="'+hdrCls+'"><span>'+hdrIcon+' '+hdrTxt+'</span><span class="eqhdr-sub">Ma '+machN+'</span></div>'
+ +'<div class="eqrow">'
+  +'<div class="eqlbl">'+(LANG==='en'?'FRAGMENTATION HEIGHT':'FRAGMENTACIÓN')+'</div>'
+  +'<div class="eqline">'+zfEq+'</div>'
+  +'<div class="eqres">= '+zfRes+' <span style="font-size:9px;font-weight:400;color:var(--ink3)">['+zfLbl+']</span></div>'
+  +'<div class="eqcite">Chyba, Thomas &amp; Zahnle (1993) Nature 361:40 · Eq. 5</div>'
+ +'</div>'
+ +'<div class="eqrow alt">'
+  +'<div class="eqlbl">'+(LANG==='en'?'KINETIC ENERGY &amp; MASS':'ENERGÍA CINÉTICA &amp; MASA')+'</div>'
+  +'<div class="eqline">E_k = ½mv² → <b>'+EkRnd+'</b></div>'
+  +'<div class="eqline">m = ρ·(π/6)·d³ → <b>'+fM(R.mass)+'</b></div>'
+  +'<div class="eqline" style="color:var(--ink3)">'+weffNote+'</div>'
+ +'</div>'
+ +cratRow
+ +'<div class="eqrow">'
+  +'<div class="eqlbl">'+(LANG==='en'?'IMPACT ZONE':'ZONA DE IMPACTO')+'</div>'
+  +'<div class="eqline"><b>'+R.rNm+'</b></div>'
+  +'<div class="eqline">ρ̄ = '+R.dens.toFixed(1)+' '+(x.sm_habkm2||'hab/km²')+' ('+x.sm_unif+')</div>'
+  +'<div class="eqline">'+(x.sm_pob_tot||'Pob. total')+': <b>'+R.rPop.toLocaleString()+' '+(x.sm_hab||'hab')+'</b></div>'
+ +'</div>'
+ +warnRow
+ +'<div class="eqrefs">Kinney &amp; Graham (1985) · Chyba, Thomas &amp; Zahnle (1993) · Holsapple (1993) · Collins et al. (2005) · Silber (2025) · DANE 2023</div>'
+ +'</div>';
  document.getElementById('smunc').innerHTML=
  '<div class="unc-title">'+x.unc_title+'</div>'+x.unc_body+
  '<div style="font-size:7px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-top:9px;margin-bottom:5px">'+x.unc_quant+'</div>'+
@@ -2214,6 +2396,167 @@ function mobSbClose(){
  if(btn)btn.textContent=(TX[LANG].btn_eventos||'☰ Eventos');
 }
 // Close sidebar when an event is selected on mobile
+
+// ── BOLIDE REPORT ────────────────────────────────────────────
+// ── NOTIFICATION CONFIG ─────────────────────────────────────
+// 1. CallMeBot: send WhatsApp to +34 644 93 87 00 saying
+//    "I allow callmebot to send me messages" → get your API key
+// 2. Formspree: create free form at formspree.io → copy form ID
+var CALLMEBOT_KEY='YOUR_CALLMEBOT_APIKEY';   // ← paste your key here
+var CALLMEBOT_PHONE='573160417765';           // ← your number, no +
+var FORMSPREE_ID='YOUR_FORMSPREE_ID';         // ← paste your form ID here
+
+var repImgFile=null;
+
+function openRep(){
+ var modal=document.getElementById('repmodal');
+ if(modal)modal.classList.add('open');
+ // Set default timestamp to now
+ var now=new Date();
+ now.setMinutes(now.getMinutes()-now.getTimezoneOffset());
+ var el=document.getElementById('rep-when');
+ if(el)el.value=now.toISOString().slice(0,16);
+}
+function closeRep(){
+ var modal=document.getElementById('repmodal');
+ if(modal)modal.classList.remove('open');
+}
+
+function repGetGPS(){
+ var btn=document.getElementById('rep-gps-btn');
+ var x=TX[LANG];
+ if(!navigator.geolocation){
+  setRepStatus(x.rep_err_gps,'err');return;
+ }
+ btn.classList.add('loading');
+ btn.textContent=x.rep_gps_search||'Buscando…';
+ navigator.geolocation.getCurrentPosition(
+  function(pos){
+   document.getElementById('rep-lat').value=pos.coords.latitude.toFixed(4);
+   document.getElementById('rep-lon').value=pos.coords.longitude.toFixed(4);
+   btn.classList.remove('loading');
+   btn.textContent=x.rep_gps_ok||'✓ GPS';
+   setRepStatus('','');
+  },
+  function(err){
+   btn.classList.remove('loading');
+   btn.textContent='📍 GPS';
+   var msg=err.code===1
+    ?(x.rep_err_gps_denied||'Permiso denegado')+'\n'+(LANG==='en'?'Enable in: Settings → Browser → Location':'Activa en: Ajustes → Navegador → Ubicación')
+    :(x.rep_err_gps||'No se pudo obtener ubicación');
+   setRepStatus(msg,'err');
+  },
+  {enableHighAccuracy:true,maximumAge:0,timeout:15000}
+ );
+}
+
+function repHandleImg(input){
+ var file=input.files[0];
+ if(!file)return;
+ repImgFile=file;
+ var reader=new FileReader();
+ reader.onload=function(e){
+  var preview=document.getElementById('rep-img-preview');
+  var zone=document.getElementById('rep-img-zone');
+  var lbl=document.getElementById('rep-img-lbl');
+  var clear=document.getElementById('rep-img-clear');
+  preview.src=e.target.result;
+  preview.style.display='block';
+  zone.classList.add('has-img');
+  lbl.style.display='none';
+  clear.style.display='block';
+ };
+ reader.readAsDataURL(file);
+}
+
+function repClearImg(e){
+ e.stopPropagation();
+ repImgFile=null;
+ document.getElementById('rep-file').value='';
+ document.getElementById('rep-img-preview').style.display='none';
+ document.getElementById('rep-img-preview').src='';
+ document.getElementById('rep-img-zone').classList.remove('has-img');
+ document.getElementById('rep-img-lbl').style.display='block';
+ document.getElementById('rep-img-clear').style.display='none';
+}
+
+function setRepStatus(msg,type){
+ var el=document.getElementById('rep-status');
+ el.textContent=msg;
+ el.className='rep-status '+(type||'');
+}
+
+async function submitReport(){
+ var desc=document.getElementById('rep-desc').value.trim();
+ var lat=document.getElementById('rep-lat').value.trim();
+ var lon=document.getElementById('rep-lon').value.trim();
+ var when=document.getElementById('rep-when').value;
+ var reporter=document.getElementById('rep-reporter').value.trim()||'Anónimo';
+
+ var x2=TX[LANG];
+ if(!desc){setRepStatus(x2.rep_err_desc,'err');return;}
+ if(!lat||!lon){setRepStatus(x2.rep_err_loc,'err');return;}
+
+ var btn=document.getElementById('rep-submit');
+ btn.disabled=true;btn.textContent=x2.rep_sending||'ENVIANDO…';
+ setRepStatus('','');
+
+ var locStr=parseFloat(lat).toFixed(4)+'°N, '+parseFloat(lon).toFixed(4)+'°W';
+ var whenStr=when?when.replace('T',' '):'No especificado';
+ var results={wa:false,email:false};
+
+ // ── 1. WhatsApp via CallMeBot (instant ping) ─────────────────
+ try{
+  var waText=['Reporte BolidesCO','Coords: '+locStr,'Hora: '+whenStr,'Info: '+desc.slice(0,300),(repImgFile?'Con foto adjunta':''),'De: '+reporter].join('\n');
+  var waUrl='https://api.callmebot.com/whatsapp.php'
+   +'?phone='+CALLMEBOT_PHONE
+   +'&text='+encodeURIComponent(waText)
+   +'&apikey='+CALLMEBOT_KEY;
+  var waRes=await fetch(waUrl,{mode:'no-cors'});
+  results.wa=true;
+ }catch(e){results.wa=false;}
+
+ // ── 2. Email via Formspree (full report + photo) ─────────────
+ try{
+  var fd=new FormData();
+  fd.append('Descripción',desc);
+  fd.append('Coordenadas',locStr);
+  fd.append('Fecha_Hora',whenStr);
+  fd.append('Reportado_por',reporter);
+  fd.append('_subject','🌠 Reporte de Bólido — BolidesCO');
+  fd.append('_replyto',reporter.includes('@')?reporter:'noreply@bolidesco.org');
+  if(repImgFile)fd.append('Foto',repImgFile,repImgFile.name);
+  var fsRes=await fetch('https://formspree.io/f/'+FORMSPREE_ID,{
+   method:'POST',body:fd,headers:{Accept:'application/json'}
+  });
+  results.email=fsRes.ok;
+ }catch(e){results.email=false;}
+
+ // ── Status ───────────────────────────────────────────────────
+ var x=TX[LANG];
+ var notConfigured=CALLMEBOT_KEY==='YOUR_CALLMEBOT_APIKEY'||FORMSPREE_ID==='YOUR_FORMSPREE_ID';
+ if(notConfigured){
+  setRepStatus(x.rep_err_cfg,'err');
+ } else if(results.wa||results.email){
+  setRepStatus(repImgFile?(x.rep_ok_photo||x.rep_ok):x.rep_ok,'ok');
+  document.getElementById('rep-desc').value='';
+  document.getElementById('rep-lat').value='';
+  document.getElementById('rep-lon').value='';
+  document.getElementById('rep-reporter').value='';
+  repClearImg({stopPropagation:function(){}});
+  setTimeout(closeRep,2600);
+ } else {
+  setRepStatus(x.rep_err_send,'err');
+ }
+ btn.disabled=false;btn.textContent=x.rep_submit;
+}
+
+// Close on backdrop click
+document.addEventListener('click',function(e){
+ var modal=document.getElementById('repmodal');
+ if(modal&&e.target===modal)closeRep();
+});
+
 window.addEventListener('DOMContentLoaded',function(){
   setLang('es');
   initHome();
