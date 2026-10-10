@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <style>
 :root{
  --hbg:#0a0908;--hink:#f5f3ee;--hink2:#9a9590;--hink3:#3a3630;
@@ -49,7 +50,7 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidde
 .nlink:hover{color:var(--hink);}
 .nright{margin-left:auto;display:flex;align-items:center;gap:8px;}
 .nlang{display:flex;border:1px solid var(--hbord2);border-radius:2px;overflow:hidden;}
-.lbtn{padding:4px 10px;font-family:var(--mono);font-size:9px;font-weight:600;background:none;border:none;border-right:1px solid var(--hbord2);color:var(--hink3);cursor:pointer;transition:.15s;}
+.lbtn{padding:4px 10px;font-family:var(--mono);font-size:9px;font-weight:600;background:none;border:none;border-right:1px solid var(--hbord2);color:var(--hink2);cursor:pointer;transition:.15s;}
 .lbtn:last-child{border-right:none;}
 .lbtn.on{background:rgba(255,255,255,.13);color:var(--hink);}
 .nenter{padding:7px 18px;background:var(--hink);border:none;border-radius:2px;color:var(--hbg);font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.2s;}
@@ -58,7 +59,7 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidde
 #hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:72px 72px;}
 #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(transparent,var(--hbg));}
 .hero-inner{position:relative;z-index:1;}
-.hero-ey{font-family:var(--mono);font-size:10px;letter-spacing:4px;color:var(--hink3);text-transform:uppercase;margin-bottom:36px;opacity:0;animation:fu .9s .3s forwards;}
+.hero-ey{font-family:var(--mono);font-size:10px;letter-spacing:4px;color:var(--hink2);text-transform:uppercase;margin-bottom:36px;opacity:0;animation:fu .9s .3s forwards;}
 .hero-wm{font-family:var(--pf);font-size:clamp(80px,11vw,136px);font-weight:900;letter-spacing:-4px;line-height:.9;color:var(--hink);opacity:0;animation:fu .9s .5s forwards;}
 .hero-wm span{color:var(--hink3);}
 .hero-rule{width:56px;height:1px;background:var(--hbord2);margin:28px auto;opacity:0;animation:fu .9s .7s forwards;}
@@ -84,11 +85,11 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidde
 .scard::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--hamb);opacity:0;transition:opacity .3s;}
 .scard:hover::before{opacity:1;}
 .sv{font-family:var(--pf);font-size:46px;font-weight:700;color:var(--hink);line-height:1;margin-bottom:6px;}
-.sl{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--hink3);font-weight:500;}
+.sl{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--hink2);font-weight:500;}
 #st{padding:120px 64px;position:relative;}
 #st::before{content:'';position:absolute;top:0;left:64px;right:64px;height:1px;background:var(--hbord);}
 .tg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.tz{padding:15px 0;border-bottom:1px solid var(--hbord);display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;color:var(--hink3);}
+.tz{padding:15px 0;border-bottom:1px solid var(--hbord);display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;color:var(--hink2);}
 .tz:first-child{border-top:1px solid var(--hbord);}
 .tzdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .tzpsi{margin-left:auto;color:rgba(255,255,255,.2);font-size:9px;}
@@ -100,8 +101,8 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidde
 .msr{display:flex;gap:1px;width:100%;max-width:600px;}
 .ms{padding:14px 20px;background:rgba(255,255,255,.03);border:1px solid var(--hbord);flex:1;text-align:center;}
 .msv{font-family:var(--pf);font-size:26px;font-weight:700;color:var(--hink);}
-.msl{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:var(--hink3);text-transform:uppercase;margin-top:4px;}
-#hfooter{padding:36px 64px;border-top:1px solid var(--hbord);display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:8.5px;color:var(--hink3);}
+.msl{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:var(--hink2);text-transform:uppercase;margin-top:4px;}
+#hfooter{padding:36px 64px;border-top:1px solid var(--hbord);display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--hink2);}
 @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.18}}
@@ -299,7 +300,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .col-4stat{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:22px;}
 .col-sbox{padding:18px 20px;border:1px solid var(--hbord);border-radius:2px;}
 .col-sbox-v{font-family:var(--pf);font-size:32px;font-weight:700;color:var(--hink);line-height:1;}
-.col-sbox-l{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--hink3);margin-top:5px;}
+.col-sbox-l{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--hink2);margin-top:5px;}
 .auth-grid{display:flex;flex-direction:column;gap:3px;margin-top:18px;}
 .auth-card{padding:14px 16px;border:1px solid var(--hbord);border-radius:2px;display:flex;gap:10px;align-items:flex-start;transition:border-color .25s;}
 .auth-card:hover{border-color:var(--hbord2);}
@@ -327,10 +328,11 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .eq-panel-hd:hover{color:var(--ink2);}
 .eq-body{display:none;}
 .eq-body.open{display:block;}
-.eq-row{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:6px;padding:5px 0;border-bottom:1px solid var(--bg2);align-items:start;}
-.eq-row:last-child{border-bottom:none;}
+.eq-row{display:flex;flex-direction:column;padding:14px 0;border-bottom:1px solid var(--bg2);}
+.eq-row:last-child{border-bottom:none;padding-bottom:4px;}
 .eq-lbl{font-size:7px;color:var(--ink3);letter-spacing:.5px;line-height:1.5;}
-.eq-form{font-size:8px;color:var(--ink);font-weight:500;line-height:1.6;}
+.eq-form{font-size:8px;color:var(--ink);font-weight:500;line-height:1.6;overflow-x:auto;padding:2px 0;}
+.eq-form .katex-display{margin:.25em 0;}
 .eq-cite{font-size:7px;color:var(--ink3);text-align:right;line-height:1.5;}
 /* UNCERTAINTY COLUMN */
 .ztbl td.unc{color:var(--amber);font-size:8px;}
@@ -359,9 +361,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .sfn{font-size:9.5px;line-height:1.6;}
 .smml{font-size:9px;letter-spacing:1px;}
 .smrefs{font-size:9.5px;line-height:2;}
-.eq-lbl{font-size:9.5px;font-family:var(--sans);color:var(--ink2);}
-.eq-form{font-size:10.5px;line-height:1.7;}
-.eq-cite{font-size:9px;font-family:var(--sans);color:var(--ink3);}
+.eq-lbl{font-size:10px;font-family:var(--sans);color:var(--ink2);font-weight:600;margin-bottom:2px;}
+.eq-form{font-size:11px;line-height:1;overflow-x:auto;}
+.eq-cite{font-size:9px;font-family:var(--sans);color:var(--ink3);margin-top:4px;}
 .ztbl td{font-size:10px;}
 .ztbl th{font-size:8.5px;}
 .dpk{font-size:9px;}
@@ -1107,6 +1109,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script>
 
 const TX={
@@ -1159,11 +1162,12 @@ es:{
  fl_all_reg:'— Todas las regiones —',fl_all_dept:'— Todos los departamentos —',
  unc_body:'Las zonas de daño se calculan con la fórmula empírica de Kinney & Graham (1985), calibrada para explosiones de TNT en superficie. Su aplicación a airbursts de alta altitud puede subestimar el área de impacto real por 1–2 órdenes de magnitud. Las estimaciones de población asumen densidad uniforme dentro de la unidad administrativa y no contemplan tipo de construcción, topografía, horario ni comportamiento de la onda de choque. Los valores presentados son estimaciones de orden de magnitud y no deben usarse para planificación operativa de emergencias. Ver Collins et al. (2005) y Silber (2025).',
  smh_u:'Incert.',
- eq_title:'ECUACIONES UTILIZADAS',
+ eq_title:'MODELO FÍSICO',
  eq_ke:'Energía cinética',
  eq_frag:'Fragmentación (z_f)',
- eq_kg:'Sobrepresión KG',
- eq_crat:'Cráter (Holsapple)',
+ eq_kg:'Sobrepresión (KG)',
+ eq_crat:'Diámetro de cráter',
+ eq_flux:'Flujo de impactos',
  eq_pop:'Población (est.)',
  flux_title:'FLUJO DE IMPACTO GLOBAL',
  flux_body:'Brown et al. (2002) Nature 420:294: la tasa global de impactos con E > E₀ es aproximadamente N(>E₀) ≈ 3.7 · E₀⁻⁰·⁹⁰ eventos/año, con E₀ en kt TNT. Para E₀ = 1 kt: ~4 eventos/año. Para E₀ = 10 kt: ~0.5 eventos/año. Para E₀ = 100 kt (Chelyabinsk-class): ~0.04 eventos/año (~1 cada 25 años). Sobre Colombia (área ~0.22% del globo): ~0.009 eventos/año para la clase Chelyabinsk.',
@@ -1214,7 +1218,7 @@ es:{
  rep_err_gps:'No se pudo obtener ubicación. Ingresa las coordenadas manualmente.',
  rep_err_gps_denied:'Permiso de ubicación denegado. Ingresa las coordenadas manualmente.',
  rep_err_send:'Error al enviar. Revisa tu conexión e intenta de nuevo.',
- rep_err_cfg:'Configura CALLMEBOT_KEY y FORMSPREE_ID en el código.',
+ rep_err_cfg:'Configura FORMSPREE_ID en el código para activar el envío de reportes.',
  sm_tgt_hint:'Opcional — usa densidad de Colombia si no se selecciona',
  bib_ey:'04 · REFERENCIAS',
  bib_tit:'Bibliografía',
@@ -1225,14 +1229,14 @@ es:{
  E004:'GLM devolvió 0 eventos',E005:'USG devolvió 0 eventos',
  E006:'Error al inicializar el mapa Leaflet',E007:'Timeout — conexión lenta o bloqueada',
  E008:'GLM formato de respuesta inválido',E009:'USG formato de respuesta inválido',
- E010:'GLM: datos con >24h de antigüedad — NASA puede estar procesando eventos, es normal',
- E011:'GLM: datos con >48h de antigüedad — si persiste, el problema está en neo-bolide.ndc.nasa.gov (responsabilidad de NASA)',
- E012:'GLM: datos con >7 días de antigüedad — inusual; puede deberse a mantenimiento en servidores NASA · Reintentando',
+ E010:'GLM: datos con >24h de antigüedad — NASA puede estar procesando eventos recientes; normal hasta ~14 días',
+ E011:'GLM: datos con >14 días de antigüedad — si persiste, revisar neo-bolide.ndc.nasa.gov (responsabilidad NASA)',
+ E012:'GLM: datos con >21 días de antigüedad — inusual; posible mantenimiento prolongado en servidores NASA',
  E013:'Sin eventos en la vista actual — intenta ampliar el área o cambiar filtros',
  E014:'Error cargando tiles del mapa — verifica tu conexión a internet',
  E015:'Filtro de recencia activo — mostrando solo eventos recientes',
  E016:'Filtro de región/departamento activo — vista parcial de Colombia',
- E017:'GLM: datos con más de 21 días de antigüedad — posible fallo prolongado en servidores NASA',
+ E017:'GLM: datos con más de 30 días de antigüedad — posible fallo severo en servidores NASA',
  }
 },
 en:{
@@ -1284,11 +1288,12 @@ en:{
  fl_all_reg:'— All regions —',fl_all_dept:'— All departments —',
  unc_body:'Damage zones are computed using Kinney & Graham (1985), an empirical formula calibrated for near-surface TNT explosions. Its application to high-altitude airbursts may underestimate actual ground-level blast radii by 1–2 orders of magnitude. Population estimates assume uniform density within each administrative unit and do not account for building type, topography, time of day, or shock wave propagation effects. All values are order-of-magnitude estimates and must not be used for operational emergency planning. See Collins et al. (2005) and Silber (2025).',
  smh_u:'Uncert.',
- eq_title:'EQUATIONS USED',
+ eq_title:'PHYSICAL MODEL',
  eq_ke:'Kinetic energy',
- eq_frag:'Fragmentation (z_f)',
- eq_kg:'KG overpressure',
- eq_crat:'Crater (Holsapple)',
+ eq_frag:'Fragmentation altitude',
+ eq_kg:'Overpressure (KG)',
+ eq_crat:'Crater diameter',
+ eq_flux:'Impact flux',
  eq_pop:'Population (est.)',
  flux_title:'GLOBAL IMPACT FLUX',
  flux_body:'Brown et al. (2002) Nature 420:294: global rate of impacts with E > E₀ is approximately N(>E₀) ≈ 3.7 · E₀⁻⁰·⁹⁰ events/year, E₀ in kt TNT. For E₀ = 1 kt: ~4 events/year. For E₀ = 10 kt: ~0.5/year. For E₀ = 100 kt (Chelyabinsk-class): ~0.04/year (~1 every 25 years). Over Colombia (area ~0.22% of globe): ~0.009 Chelyabinsk-class events per year.',
@@ -1339,7 +1344,7 @@ en:{
  rep_err_gps:'Could not get location. Enter coordinates manually.',
  rep_err_gps_denied:'Location permission denied. Enter coordinates manually.',
  rep_err_send:'Send failed. Check your connection and try again.',
- rep_err_cfg:'Set CALLMEBOT_KEY and FORMSPREE_ID in the code.',
+ rep_err_cfg:'Set FORMSPREE_ID in the code to enable report submissions.',
  sm_tgt_hint:'Optional — uses Colombia density if not selected',
  bib_ey:'04 · REFERENCES',
  bib_tit:'Bibliography',
@@ -1350,14 +1355,14 @@ en:{
  E004:'GLM returned 0 events',E005:'USG returned 0 events',
  E006:'Map initialization failed',E007:'Timeout — slow or blocked connection',
  E008:'GLM invalid response format',E009:'USG invalid response format',
- E010:'GLM: data >24h old — NASA may be processing recent events, this is normal',
- E011:'GLM: data >48h old — if this persists, issue is at neo-bolide.ndc.nasa.gov (NASA responsibility)',
- E012:'GLM: data >7 days old — unusual; may indicate NASA server maintenance · Retrying automatically',
+ E010:'GLM: data >24h old — NASA may be processing recent events; normal up to ~14 days',
+ E011:'GLM: data >14 days old — if this persists, check neo-bolide.ndc.nasa.gov (NASA responsibility)',
+ E012:'GLM: data >21 days old — unusual; possible prolonged NASA server maintenance',
  E013:'No events in current view — zoom out or adjust filters',
  E014:'Map tile load error — check your internet connection',
  E015:'Recency filter active — showing only recent events',
  E016:'Region/department filter active — partial Colombia view',
- E017:'GLM: data over 21 days old — possible prolonged NASA server outage',
+ E017:'GLM: data >30 days old — severe NASA server outage suspected',
  }
 }};
 
@@ -1578,13 +1583,14 @@ function updateStAge(){
  el.textContent='GLM: <6h';el.style.color='var(--green)';el.style.animation='';
  }else if(ageH<24){
  el.textContent='GLM: '+ageH+'h';el.style.color='';el.style.animation='';
- }else if(ageH<48){
- el.textContent='GLM: '+ageH+'h ⚠';el.style.color='var(--amber)';el.style.animation='';
+ }else if(ageH<336){
+ var dispE10=ageH<48?ageH+'h':Math.floor(ageH/24)+'d';
+ el.textContent='GLM: '+dispE10+' ⚠';el.style.color='var(--amber)';el.style.animation='';
  addErr('E010',true);
- }else if(ageH<168){
+ }else if(ageH<504){
  el.textContent='GLM: '+Math.floor(ageH/24)+'d ⚠';el.style.color='var(--amber)';el.style.animation='';
  addErr('E011',true);
- }else if(ageH<504){
+ }else if(ageH<720){
  el.textContent='GLM: '+Math.floor(ageH/24)+'d ⚠⚠';el.style.color='var(--red)';el.style.animation='';
  addErr('E012',true);
  }else{
@@ -2191,13 +2197,36 @@ function renderSim(R){
  var eqEl=document.getElementById('smeq');
  if(eqEl){
  var eqRows=[
- {l:x.eq_ke, f:'E_k = ½ρd³(π/6)v²', c:'Newton (1687)'},
- {l:x.eq_frag, f:'z_f = H·ln(ρ₀v²/Y) | H=8500m, ρ₀=1.293 kg/m³',c:'Chyba et al. (1993) Ec.5'},
- {l:x.eq_kg, f:'P_s = 808·(1+(Z/4.5)²) / [f₁·f₂·f₃] · P₀ | Z = R/W^⅓ [m/kg^⅓]',c:'Kinney & Graham (1985)'},
- {l:x.eq_crat, f:'D_f = 1.56·(ρᵢ/ρₜ)^⅓·d^0.78·v^0.44·sin(θ)^⅓·g⁻⁰·²²',c:'Holsapple (1993)'},
- {l:x.eq_pop, f:'N_pop = min(ρ̄·A, N_total) | ρ̄ = DANE 2023 [hab/km²]',c:'DANE (2023)'},
+ {l:x.eq_ke,
+  f:'E_k = \\tfrac{1}{2}\\,\\rho\\,\\tfrac{\\pi}{6}\\,d^3\\,v^2',
+  c:'Newton (1687)'},
+ {l:x.eq_frag,
+  f:'z_f = H\\ln\\!\\left(\\dfrac{\\rho_0\\,v^2}{Y}\\right),\\quad H=8500\\,\\mathrm{m},\\;\\rho_0=1.293\\,\\mathrm{kg/m^3}',
+  c:'Chyba et al. (1993) Ec.\u20095'},
+ {l:x.eq_kg,
+  f:'\\dfrac{P_s}{P_0}=\\dfrac{808\\!\\left[1+\\!\\left(\\tfrac{Z}{4.5}\\right)^{\\!2}\\right]}{\\sqrt{1+\\!\\left(\\tfrac{Z}{0.048}\\right)^{\\!2}}\\;\\sqrt{1+\\!\\left(\\tfrac{Z}{0.32}\\right)^{\\!2}}\\;\\sqrt{1+\\!\\left(\\tfrac{Z}{1.35}\\right)^{\\!2}}},\\quad Z=\\dfrac{R}{W^{1/3}}',
+  c:'Kinney & Graham (1985)'},
+ {l:x.eq_crat,
+  f:'D_f=1.56\\,\\left(\\dfrac{\\rho_i}{\\rho_t}\\right)^{\\!1/3}\\!d^{0.78}\\,v^{0.44}\\,\\sin^{1/3}\\!\\theta\\cdot g^{-0.22}',
+  c:'Holsapple (1993)'},
+ {l:x.eq_flux,
+  f:'N(>{E_0})=3.70\\,E_0^{\\,-0.90}\\;\\mathrm{yr}^{-1}',
+  c:'Brown et al. (2002)'},
+ {l:x.eq_pop,
+  f:'N_{\\mathrm{pop}}=\\min\\!\\bigl(\\bar{\\rho}\\cdot A,\\;N_{\\mathrm{total}}\\bigr)',
+  c:'DANE (2023)'},
  ];
- eqEl.innerHTML=eqRows.map(function(r){var fmtF=r.f.replace(/ \| /g,'<br><span style="font-size:9px;color:var(--ink3)">');fmtF+=r.f.indexOf(' | ')>-1?'</span>':'';return'<div class="eq-row"><div class="eq-lbl">'+r.l+'</div><div class="eq-form">'+fmtF+'</div><div class="eq-cite">'+r.c+'</div></div>';}).join('');
+ var useKatex=typeof katex!=='undefined';
+ eqEl.innerHTML=eqRows.map(function(r){
+  var fHtml;
+  if(useKatex){
+   try{fHtml=katex.renderToString(r.f,{throwOnError:false,displayMode:true,output:'html'});}
+   catch(e){fHtml='<code style="font-size:10px">'+r.f+'</code>';}
+  }else{
+   fHtml='<code style="font-size:10px">'+r.f+'</code>';
+  }
+  return'<div class="eq-row"><div class="eq-lbl">'+r.l+'</div><div class="eq-form">'+fHtml+'</div><div class="eq-cite">'+r.c+'</div></div>';
+ }).join('');
  }
  var S=220,C=110,mxR=Math.max(R.zones[4].r,.001),sc=(C-14)/mxR;
  var svg='<rect width="'+S+'" height="'+S+'" fill="var(--bg2)"/>';
@@ -2399,12 +2428,9 @@ function mobSbClose(){
 
 // ── BOLIDE REPORT ────────────────────────────────────────────
 // ── NOTIFICATION CONFIG ─────────────────────────────────────
-// 1. CallMeBot: send WhatsApp to +34 644 93 87 00 saying
-//    "I allow callmebot to send me messages" → get your API key
-// 2. Formspree: create free form at formspree.io → copy form ID
-var CALLMEBOT_KEY='YOUR_CALLMEBOT_APIKEY';   // ← paste your key here
-var CALLMEBOT_PHONE='573160417765';           // ← your number, no +
-var FORMSPREE_ID='YOUR_FORMSPREE_ID';         // ← paste your form ID here
+// Formspree: create a free form at formspree.io → paste form ID below
+// Reports arrive as emails to the address configured in your Formspree form
+var FORMSPREE_ID='xvkzrvow';         // ← paste your form ID here
 
 var repImgFile=null;
 
@@ -2493,30 +2519,20 @@ async function submitReport(){
  var when=document.getElementById('rep-when').value;
  var reporter=document.getElementById('rep-reporter').value.trim()||'Anónimo';
 
- var x2=TX[LANG];
- if(!desc){setRepStatus(x2.rep_err_desc,'err');return;}
- if(!lat||!lon){setRepStatus(x2.rep_err_loc,'err');return;}
+ var x=TX[LANG];
+ if(!desc){setRepStatus(x.rep_err_desc,'err');return;}
+ if(!lat||!lon){setRepStatus(x.rep_err_loc,'err');return;}
+
+ if(FORMSPREE_ID==='YOUR_FORMSPREE_ID'){setRepStatus(x.rep_err_cfg,'err');return;}
 
  var btn=document.getElementById('rep-submit');
- btn.disabled=true;btn.textContent=x2.rep_sending||'ENVIANDO…';
+ btn.disabled=true;btn.textContent=x.rep_sending||'ENVIANDO…';
  setRepStatus('','');
 
  var locStr=parseFloat(lat).toFixed(4)+'°N, '+parseFloat(lon).toFixed(4)+'°W';
  var whenStr=when?when.replace('T',' '):'No especificado';
- var results={wa:false,email:false};
 
- // ── 1. WhatsApp via CallMeBot (instant ping) ─────────────────
- try{
-  var waText=['Reporte BolidesCO','Coords: '+locStr,'Hora: '+whenStr,'Info: '+desc.slice(0,300),(repImgFile?'Con foto adjunta':''),'De: '+reporter].join('\n');
-  var waUrl='https://api.callmebot.com/whatsapp.php'
-   +'?phone='+CALLMEBOT_PHONE
-   +'&text='+encodeURIComponent(waText)
-   +'&apikey='+CALLMEBOT_KEY;
-  var waRes=await fetch(waUrl,{mode:'no-cors'});
-  results.wa=true;
- }catch(e){results.wa=false;}
-
- // ── 2. Email via Formspree (full report + photo) ─────────────
+ // ── Email via Formspree ──────────────────────────────────────
  try{
   var fd=new FormData();
   fd.append('Descripción',desc);
@@ -2529,23 +2545,18 @@ async function submitReport(){
   var fsRes=await fetch('https://formspree.io/f/'+FORMSPREE_ID,{
    method:'POST',body:fd,headers:{Accept:'application/json'}
   });
-  results.email=fsRes.ok;
- }catch(e){results.email=false;}
-
- // ── Status ───────────────────────────────────────────────────
- var x=TX[LANG];
- var notConfigured=CALLMEBOT_KEY==='YOUR_CALLMEBOT_APIKEY'||FORMSPREE_ID==='YOUR_FORMSPREE_ID';
- if(notConfigured){
-  setRepStatus(x.rep_err_cfg,'err');
- } else if(results.wa||results.email){
-  setRepStatus(repImgFile?(x.rep_ok_photo||x.rep_ok):x.rep_ok,'ok');
-  document.getElementById('rep-desc').value='';
-  document.getElementById('rep-lat').value='';
-  document.getElementById('rep-lon').value='';
-  document.getElementById('rep-reporter').value='';
-  repClearImg({stopPropagation:function(){}});
-  setTimeout(closeRep,2600);
- } else {
+  if(fsRes.ok){
+   setRepStatus(repImgFile?(x.rep_ok_photo||x.rep_ok):x.rep_ok,'ok');
+   document.getElementById('rep-desc').value='';
+   document.getElementById('rep-lat').value='';
+   document.getElementById('rep-lon').value='';
+   document.getElementById('rep-reporter').value='';
+   repClearImg({stopPropagation:function(){}});
+   setTimeout(closeRep,2600);
+  }else{
+   setRepStatus(x.rep_err_send,'err');
+  }
+ }catch(e){
   setRepStatus(x.rep_err_send,'err');
  }
  btn.disabled=false;btn.textContent=x.rep_submit;
