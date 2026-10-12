@@ -306,15 +306,15 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .auth-card:hover{border-color:var(--hbord2);}
 .auth-bar{width:2px;height:32px;background:var(--hamb);border-radius:2px;flex-shrink:0;margin-top:2px;}
 .auth-name{font-family:var(--pf);font-size:14px;font-weight:700;color:var(--hink);}
-.auth-role{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--hink3);margin-top:3px;}
+.auth-role{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--hink2);margin-top:3px;}
 .reg-list{display:flex;flex-direction:column;gap:3px;margin-top:14px;}
 .reg-row{padding:11px 13px;border:1px solid var(--hbord);border-radius:2px;transition:border-color .25s;}
 .reg-row:hover{border-color:var(--hbord2);}
 .reg-top{display:flex;align-items:center;gap:9px;margin-bottom:5px;}
 .reg-pip{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .reg-name{font-family:var(--pf);font-size:13px;font-weight:700;color:var(--hink);flex:1;}
-.reg-pct{font-family:var(--mono);font-size:8px;color:var(--hink3);}
-.reg-meta{display:flex;gap:14px;font-family:var(--mono);font-size:8px;color:var(--hink3);margin-bottom:5px;}
+.reg-pct{font-family:var(--mono);font-size:8px;color:var(--hink2);}
+.reg-meta{display:flex;gap:14px;font-family:var(--mono);font-size:8px;color:var(--hink2);margin-bottom:5px;}
 .reg-meta b{color:rgba(245,243,238,.55);}
 .reg-bar-bg{height:2px;background:var(--hbord);border-radius:1px;overflow:hidden;}
 .reg-bar{height:100%;border-radius:1px;}
@@ -378,7 +378,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;hei
 .bib-num{font-family:var(--mono);font-size:9px;color:var(--hamb);font-weight:600;padding-top:3px;}
 .bib-auth{font-family:var(--sans);font-size:12px;color:var(--hink);font-weight:500;line-height:1.4;margin-bottom:4px;}
 .bib-ref{font-family:var(--sans);font-size:11px;color:var(--hink2);font-weight:300;line-height:1.65;}
-.bib-doi{font-family:var(--mono);font-size:8.5px;color:var(--hink3);margin-top:5px;}
+.bib-doi{font-family:var(--mono);font-size:8.5px;color:var(--hink2);margin-top:5px;}
 @media(max-width:1024px){.bib-grid{grid-template-columns:1fr;}}
 @media(max-width:768px){#biblio{padding:60px 18px;}#biblio::before{left:18px;right:18px;}}
 
@@ -2430,7 +2430,7 @@ function mobSbClose(){
 // ── NOTIFICATION CONFIG ─────────────────────────────────────
 // Formspree: create a free form at formspree.io → paste form ID below
 // Reports arrive as emails to the address configured in your Formspree form
-var FORMSPREE_ID='xvkzrvow';         // ← paste your form ID here
+var FORMSPREE_ID='YOUR_FORMSPREE_ID';         // ← paste your form ID here
 
 var repImgFile=null;
 
@@ -2554,10 +2554,17 @@ async function submitReport(){
    repClearImg({stopPropagation:function(){}});
    setTimeout(closeRep,2600);
   }else{
-   setRepStatus(x.rep_err_send,'err');
+   var errMsg=x.rep_err_send;
+   try{
+    var errJson=await fsRes.json();
+    if(errJson&&errJson.error)errMsg='Formspree: '+errJson.error;
+    else if(errJson&&errJson.errors&&errJson.errors[0])errMsg='Formspree: '+errJson.errors[0].message;
+   }catch(je){errMsg=x.rep_err_send+' (HTTP '+fsRes.status+')';}
+   setRepStatus(errMsg,'err');
   }
  }catch(e){
-  setRepStatus(x.rep_err_send,'err');
+  var netMsg=e&&e.message?'Network: '+e.message:x.rep_err_send;
+  setRepStatus(netMsg,'err');
  }
  btn.disabled=false;btn.textContent=x.rep_submit;
 }
